@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+	<head>
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<title>Barbados Gas Price Calculator</title>
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+			<link rel="stylesheet" href="index.css">
+	</head>
+	<body>
+		<section class = "section section__title--top">
+				<h1 class="title">
+						BAJAN GAS PRICE CALCULATOR
+				</h1>
+				<hr>
+		</section>
+		<section class="section section__paragraph--top">
+				<div class="container">
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, expedita quos
+						corrupti minus cupiditate ipsum iste molestiae possimus ut vero reprehenderit,
+						minima laudantium fugit autem est sapiente porro totam laboriosam.
+
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, expedita quos
+						corrupti minus cupiditate ipsum iste molestiae possimus ut vero reprehenderit,
+						minima laudantium fugit autem est sapiente porro totam laboriosam.
+					</p>
+			</div>
+		</section>
+		<form onsubmit="elementsFadeOut();return false" class="form__inputs">
+			<section class="section">
+				<div class="container">
+					<div class="columns">
+						<div class="column">
+							<div class="field">
+								<label class="label">Fuel Efficiency</label>
+								<div class="control">
+									<input class="input" type="number" min="1" placeholder="Fuel Efficiency/MPG" id="fuel-efficiency" required>
+								</div>
+								<p class="help">Please find your car's MPG here</p>
+							</div>
+						</div>
+						<div class="column">
+							<div class="field">
+								<label class="label">Odometer Reading</label>
+								<div class="control">
+								<input class="input" type="number" min="1" placeholder="Odometer Reading/km" id="odometer" required>
+								</div>
+							</div>
+						</div>
+						<div class="column">
+							<div class="field">
+								<label class="label">Age of Vehicle</label>
+								<div class="control">
+								<input class="input" type="number" min="1"  max="50" placeholder="Age of Vehicle/years" id="age" required>
+								</div>
+							</div>
+						</div>
+						<div class="column">
+							<label class="label">Type of Fuel</label>
+							<div class="control">
+								<div class="select">
+									<select id="fuel-type">
+										<option>Gas</option>
+										<option>Diesel</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+<!-- Calculate Button -->
+			<section class="section">
+				<div class="container">
+					<button class="button button__calculate">Calculate</button>
+				</div>
+			</section>
+		</form>
+
+
+<!--------------- Gas Calculator Cards -------------->
+		<section class="section section__cards">
+			<div class="container">
+				<div class="columns">
+
+					<!------   Taxes Card    ---- -->
+					<div class="column">
+						<div class="card">
+							<div class="card-content">
+								<p class="title">
+									You Will Spend:
+								</p>
+							</div>
+							<div class="content">
+								<ul>
+									<li>$
+										<span></span> in fuel taxes per year</li>
+									<li>$
+										<span></span> in fuel taxes per month</li>
+								</ul>
+							</div>
+							<footer class="card-footer">
+								<p class="card-footer-item">
+									<span>
+										View on
+										<a href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
+									</span>
+								</p>
+								<p class="card-footer-item">
+									<span>
+										Share on
+										<a href="#">Facebook</a>
+									</span>
+								</p>
+							</footer>
+						</div>
+					</div>
+
+					<!------   Expenses Card     ------>
+					<div class="column">
+						<div class="card">
+							<div class="card-content">
+								<p class="title">
+									You Have Spent:
+								</p>
+							</div>
+							<div class="content">
+								<ul>
+									<li>$
+										<span></span> in fuel in total</li>
+									<li>$
+										<span></span> in fuel per year</li>
+									<li>$
+										<span></span> in fuel per month</li>
+								</ul>
+							</div>
+							<footer class="card-footer">
+								<p class="card-footer-item">
+									<span>
+										View on
+										<a href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
+									</span>
+								</p>
+								<p class="card-footer-item">
+									<span>
+										Share on
+										<a href="#">Facebook</a>
+									</span>
+								</p>
+							</footer>
+						</div>
+					</div>
+
+					<!------   Taxes Card     ------>
+					<div class="column">
+						<div class="card">
+							<div class="card-content">
+								<p class="title">
+									You Have Used:
+								</p>
+							</div>
+							<div class="content">
+								<ul>
+									<li>
+										<span></span> litres of fuel in total</li>
+									<li>
+										<span></span> litres of fuel per year</li>
+									<li>
+										<span></span> litres of fuel per month</li>
+								</ul>
+							</div>
+							<footer class="card-footer">
+								<p class="card-footer-item">
+									<span>
+										View on
+										<a href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
+									</span>
+								</p>
+								<p class="card-footer-item">
+									<span>
+										Share on
+										<a href="#">Facebook</a>
+									</span>
+								</p>
+							</footer>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="container">
+				<button class="button button__recalculate">Calculate Again</button>
+			</div>
+			
+		</section>
+
+		<section class="section">
+
+		</section>
+
+	</body>
+
+
+		<!-- FontAwesome, jQuery and Index.js -->
+		<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+		<script src="index.js"></script>
+</html>

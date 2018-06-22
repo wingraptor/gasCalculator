@@ -1,0 +1,26 @@
+.section__title--top {
+    text-align: center;
+    margin-top: 5%;
+    padding-bottom: 20px;
+}
+
+.section__cards {
+    display: none;
+}
+
+hr {
+    width: 20%;
+    margin: 24px auto 24px auto;
+}
+
+.button__calculate{
+    display:block;
+    margin: 0 auto 0 auto;
+}
+
+.button__recalculate{
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 5%;
+    display:block;
+}
