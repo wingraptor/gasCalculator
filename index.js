@@ -17,9 +17,43 @@ const dieselFuelRate = [
 ]
 
 
-$(".icon").on("click",function(){
-  $(".modal").addClass("is-active");
-});
+
+
+// Allows specific Modal to be loaded to page on click of specific event
+function modalManager(){
+  $(".icon").on("click", function () {
+    if ($(this).attr("id") === "taxes-info") {
+      modalOpener("#taxes-info-modal");
+      modalCloser("#taxes-info-modal");
+    }
+    else if ($(this).attr("id") === "expenses-info") {
+      modalOpener("#expenses-info-modal");
+      modalCloser("#expenses-info-modal");
+    }
+    else if ($(this).attr("id") === "fuel-info") {
+      modalOpener("#fuel-info-modal");
+      modalCloser("#fuel-info-modal");
+    }
+  });
+}
+
+// Adds the class that allows the modal to load to page
+function modalOpener(ID){
+  $(ID).addClass("is-active");
+}
+
+// Removes the modal from the page by removing the is-active class
+function modalCloser(ID){
+  $(ID + " .modal-background").on("click", function(){
+    $(ID).removeClass("is-active");
+  });
+  $(ID + " .modal-card .modal-card-head .delete").on("click", function() {
+    $(ID).removeClass("is-active");
+  });
+  $(ID + " .modal-background").on("click", function () {
+    $(ID).removeClass("is-active");
+  });
+}
 
 // Adds Calculated Outputs to Page
 function outputInserter() {
@@ -61,18 +95,25 @@ function elementsFadeOut() {
       scrollTop();
       getInputs();
       outputInserter();
+      recalculate();
+      modalManager();
       isFaded = !isFaded;
     }
   });
 }
 
-$(".button__recalculate").on("click", function () {
-  $(".section__cards").fadeOut(function () {
-    scrollTop();
-    $(".form__inputs").fadeIn();
-    isFaded = !isFaded;
+
+// When recalculate button is clicked; remove output cards from page and fade in inputs
+function recalculate(){
+  $(".button__recalculate").on("click", function () {
+    $(".section__cards").fadeOut(function () {
+      scrollTop();
+      $(".form__inputs").fadeIn();
+      isFaded = !isFaded;
+    });
   });
-});
+}
+
 
 // Gets user inputs and pushes them to an array
 function getInputs() {
