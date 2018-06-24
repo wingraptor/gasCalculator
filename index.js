@@ -192,7 +192,7 @@ function mileageConverter() {
 // Calculates Total Amount of Fuel Used by Vehicle
 function totalFuelUsed() {
   let kmPerLitre = mileageConverter();
-  return (userInputs[1] * kmPerLitre).toFixed();
+  return (userInputs[1] / kmPerLitre).toFixed();
 }
 
 // Calculates Average Fuel Used Per Year
