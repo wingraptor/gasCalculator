@@ -2,6 +2,7 @@ let userInputs = [];
 let isFaded = false;
 const newTaxRate = 0.40;
 const conversionMultiplier = 0.425144; //value to conver from mpg to kpl
+let outputSpans = document.getElementsByClassName("span__output");
 
 //Fuel Rates From June 2016 Until June 2018
 const petrolFuelRate = [
@@ -16,25 +17,65 @@ const dieselFuelRate = [
 ]
 
 
+$(".icon").on("click",function(){
+  $(".modal").addClass("is-active");
+});
 
-function elementsFadeOut(){
-  $(".form__inputs").fadeOut(function(){
-    if(!isFaded){
-      $(".section__cards").fadeIn();
-      getInputs();
-      isFaded = !isFaded;
+// Adds Calculated Outputs to Page
+function outputInserter() {
+  for (var i = 0; i < outputSpans.length; i++) {
+    switch (outputSpans[i].getAttribute("id")) {
+      case "taxes-yearly":
+        outputSpans[i].textContent = "$" + yearlyFuelTaxes();
+        break;
+      case "taxes-monthly":
+        outputSpans[i].textContent = "$" + monthlyFuelTaxes();
+        break;
+      case "spend-total":
+        outputSpans[i].textContent = "$" + totalFuelCosts();
+        break;
+      case "spend-yearly":
+        outputSpans[i].textContent = "$" + yearlyFuelCosts();
+        break;
+      case "spend-monthly":
+        outputSpans[i].textContent = "$" + monthlyFuelCosts();
+        break;
+      case "fuel-total":
+        outputSpans[i].textContent = totalFuelUsed();
+        break;
+      case "yearly-total":
+        outputSpans[i].textContent = yearlyFuelUsage();
+        break;
+      case "monthly-total":
+        outputSpans[i].textContent = monthlyFuelUsage();
+        break;
     }
- });
+  }
 }
 
-$(".button__recalculate").on("click", function(){
-  $(".section__cards").fadeOut(function(){
+//Fades out Input Fields on Click of Calculate button -- This also calls functions that returns data to page
+function elementsFadeOut() {
+  $(".form__inputs").fadeOut(function () {
+    if (!isFaded) {
+      $(".section__cards").fadeIn();
+      scrollTop();
+      getInputs();
+      outputInserter();
+      isFaded = !isFaded;
+    }
+  });
+}
+
+$(".button__recalculate").on("click", function () {
+  $(".section__cards").fadeOut(function () {
+    scrollTop();
     $(".form__inputs").fadeIn();
+    isFaded = !isFaded;
   });
 });
 
 // Gets user inputs and pushes them to an array
-function getInputs(){
+function getInputs() {
   let odometerReadingKm = $("#odometer").val();
   let vehicleAge = $("#age").val();
   let fuelType = $("#fuel-type").val();
@@ -47,79 +88,91 @@ function getInputs(){
 
 
 
+//Scroll Page to Top of Page on Function Call
+
+function scrollTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+
 // Calculates average rates of petrol from June 2016 to June 2018
-function avgPetrolFuelRates(fuelRate){
+function avgPetrolFuelRates(fuelRate) {
   let sum = fuelRate[0];
-  for(var i = 1; i < fuelRate.length; i++){
+  for (var i = 1; i < fuelRate.length; i++) {
     sum += fuelRate[i];
   }
   return sum / fuelRate.length;
 }
 
 // Calculates average rates of diesel from June 2016 to June 2018
-function avgDieselFuelRates(fuelRate){
+function avgDieselFuelRates(fuelRate) {
   let sum = fuelRate[0];
-  for(var i = 1; i < fuelRate.length; i++){
+  for (var i = 1; i < fuelRate.length; i++) {
     sum += fuelRate[i];
   }
   return sum / fuelRate.length;
 }
 
 // Calculates total fuel costs from June 2016 to June 2018
-function totalfuelCosts(){
+function totalFuelCosts() {
   if (userInputs[3] === "Gas") {
-    return totalFuelUsed() * avgPetrolFuelRates(petrolFuelRate);
+    return (totalFuelUsed() * avgPetrolFuelRates(petrolFuelRate)).toFixed(2);
   } else {
-    return totalFuelUsed() * avgDieselFuelRates(dieselFuelRate);
+    return (totalFuelUsed() * avgDieselFuelRates(dieselFuelRate)).toFixed(2);
   }
 }
 
 // Calculates yearly fuel costs from June 2016 to June 2018
-function yearlyfuelCosts(){
+function yearlyFuelCosts() {
   if (userInputs[3] === "Gas") {
-    return yearlyFuelUsage() * avgPetrolFuelRates(petrolFuelRate);
+    return (yearlyFuelUsage() * avgPetrolFuelRates(petrolFuelRate)).toFixed(2);
   } else {
-    return yearlyFuelUsage() * avgDieselFuelRates(dieselFuelRate);
+    return (yearlyFuelUsage() * avgDieselFuelRates(dieselFuelRate)).toFixed(2);
   }
-} 
+}
 
 // Calculates monthly fuel costs from June 2016 to June 2018
-function monthlyFuelCosts(){
+function monthlyFuelCosts() {
   if (userInputs[3] === "Gas") {
-    return monthlyFuelUsage() * avgPetrolFuelRates(petrolFuelRate);
+    return (monthlyFuelUsage() * avgPetrolFuelRates(petrolFuelRate)).toFixed(2);
   } else {
-    return monthlyFuelUsage() * avgDieselFuelRates(dieselFuelRate);
+    return (monthlyFuelUsage() * avgDieselFuelRates(dieselFuelRate)).toFixed(2);
   }
-} 
+}
 
 //Converts mpg to km/l
-function mileageConverter(){
-    return userInputs[0] * conversionMultiplier;
-  }
+function mileageConverter() {
+  return userInputs[0] * conversionMultiplier;
+}
 
 // Calculates Total Amount of Fuel Used by Vehicle
-function totalFuelUsed(){
+function totalFuelUsed() {
   let kmPerLitre = mileageConverter();
-  return userInputs[1] * kmPerLitre;
+  return (userInputs[1] * kmPerLitre).toFixed();
 }
 
 // Calculates Average Fuel Used Per Year
-function yearlyFuelUsage(){
-  return totalFuelUsed() / userInputs[2];
+function yearlyFuelUsage() {
+  return (totalFuelUsed() / userInputs[2]).toFixed();
 }
 
 // Calculates Average Fuel Used Per Month
-function monthlyFuelUsage(){
-  return totalFuelUsed() / (userInputs[2] * 12);
+function monthlyFuelUsage() {
+  return (totalFuelUsed() / (userInputs[2] * 12)).toFixed();
 }
 
 // Calculates yearly taxes associated with new Fuel Tax
 
-function yearlyFuelTaxes(){
-    return yearlyFuelUsage() * newTaxRate;
+function yearlyFuelTaxes() {
+  return (yearlyFuelUsage() * newTaxRate).toFixed(2);
 }
 
 // Calculates monthly taxes associated with new Fuel Tax
-function monthlyFuelTaxes(){
-  return monthlyFuelCosts() * newTaxRate;
+function monthlyFuelTaxes() {
+  return (monthlyFuelUsage() * newTaxRate).toFixed(2);
 }
+
+particlesJS("particles-js", { "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ff0909" }, "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" }, "polygon": { "nb_sides": 5 }, "image": { "src": "img/github.svg", "width": 100, "height": 100 } }, "opacity": { "value": 0.5, "random": false, "anim": { "enable": false, "speed": 1, "opacity_min": 0.1, "sync": false } }, "size": { "value": 3, "random": true, "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false } }, "line_linked": { "enable": true, "distance": 150, "color": "#4a4a4a", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 6, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 } } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true }, "modes": { "grab": { "distance": 400, "line_linked": { "opacity": 1 } }, "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 }, "repulse": { "distance": 200, "duration": 0.4 }, "push": { "particles_nb": 4 }, "remove": { "particles_nb": 2 } } }, "retina_detect": true }); var count_particles, stats, update; stats = new Stats; stats.setMode(0); stats.domElement.style.position = 'absolute'; stats.domElement.style.left = '0px'; stats.domElement.style.top = '0px'; document.body.appendChild(stats.domElement); count_particles = document.querySelector('.js-count-particles'); update = function () { stats.begin(); stats.end(); if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) { count_particles.innerText = window.pJSDom[0].pJS.particles.array.length; } requestAnimationFrame(update); }; requestAnimationFrame(update);;
