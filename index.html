@@ -27,15 +27,16 @@
 			</p>
 		</div>
 	</section>
+
 	<form onsubmit="elementsFadeOut();return false" class="form__inputs">
 		<section class="section">
 			<div class="container">
 				<div class="columns">
 					<div class="column">
 						<div class="field">
-							<label class="label">Fuel Efficiency</label>
+							<label class="label is-large">Fuel Efficiency</label>
 							<div class="control">
-								<input class="input" type="number" min="1" placeholder="Fuel Efficiency/MPG" id="fuel-efficiency" required>
+								<input class="input is-large" type="number" min="1" placeholder="Fuel Efficiency/MPG" id="fuel-efficiency" required>
 							</div>
 							<p class="help">Find your car's fuel efficiency
 								<a href="http://www.fuelly.com/car" target="_blank">here</a>
@@ -44,24 +45,24 @@
 					</div>
 					<div class="column">
 						<div class="field">
-							<label class="label">Odometer Reading</label>
+							<label class="label is-large">Odometer Reading</label>
 							<div class="control">
-								<input class="input" type="number" min="1" placeholder="Odometer Reading/km" id="odometer" required>
+								<input class="input is-large" type="number" min="1" placeholder="Odom. Reading/km" id="odometer" required>
 							</div>
 						</div>
 					</div>
 					<div class="column">
 						<div class="field">
-							<label class="label">Age of Vehicle</label>
+							<label class="label is-large">Age of Vehicle</label>
 							<div class="control">
-								<input class="input" type="number" min="1" max="50" placeholder="Age of Vehicle/years" id="age" required>
+								<input class="input is-large" type="number" min="1" max="50" placeholder="Age of Vehicle/years" id="age" required>
 							</div>
 						</div>
 					</div>
-					<div class="column">
-						<label class="label">Type of Fuel</label>
+					<div class="column is-narrow">
+						<label class="label is-large">Type of Fuel</label>
 						<div class="control">
-							<div class="select">
+							<div class="select is-large">
 								<select id="fuel-type">
 									<option>Gas</option>
 									<option>Diesel</option>
@@ -69,16 +70,68 @@
 							</div>
 						</div>
 					</div>
+
+					<div class="column">
+						<!-- Calculate Button -->
+						<button class="button is-large button__calculate">Calculate</button>
+					</div>
 				</div>
 			</div>
 		</section>
-		<!-- Calculate Button -->
-		<section class="section">
-			<div class="container">
-				<button class="button button__calculate">Calculate</button>
-			</div>
-		</section>
 	</form>
+
+	<!-- Fuel Saving Tips Cards -->
+	<!-- <section class="section__cards--fuel-savings">
+		<div class="container">
+			<div class="columns">
+				<div class="column">
+					<div class="box">
+						<div class="content">
+							<h1>Fuel Saving Tips</h1>
+							<ul>
+								<li>
+									<strong>Accelerate Smoothly</strong>: Avoid accelerate rapidly as this uses more fuel</li>
+								<li>
+									<strong>Monitor Your Tires</strong>: Check tire pressures weekly; under-inflated tires reduce fuel efficiency.</li>
+								<li>
+									<strong>Avoid using the A/C</strong>: Using A/C increases fuel usage at lower speeds,</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="column">
+					<div class="box">
+						<div class="content">
+							<h1>Fuel Saving Tips</h1>
+							<ul>
+								<li>
+									<strong>Close Windows when possible</strong>: Open windows cause drag which reduces fuel efficiency.</li>
+								<li>
+									<strong>Don't carry unnecessary weight</strong>: Avoid keeping items in your vehicle as more weight = more fuel usage.</li>
+								<li>
+									<strong>Drive Less</strong>: Consider walking or carpooling</li>
+								</ol>
+						</div>
+					</div>
+				</div>
+				<div class="column">
+					<div class="box">
+						<div class="content">
+							<h1>Fuel Saving Tips</h1>
+							<ul>
+								<li>
+									<strong>Tune up your engine</strong>: A well-tuned engine is an efficient one</li>
+								<li>
+									<strong>Replace you fuel filters</strong>: This is especially if you live in dusty areas</li>
+								<li>
+									<strong>Reduce your speed</strong>: The faster you drive; the more fuel you use.</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section> -->
 
 
 	<!--------------- Gas Calculator Cards -------------->
@@ -207,11 +260,13 @@
 				</div>
 			</div>
 		</div>
-
+		<!-- Recalculate Button -->
 		<div class="container">
-			<button class="button button__recalculate">Calculate Again</button>
+			<button class="button is-large button__recalculate">Calculate Again</button>
 		</div>
 	</section>
+
+
 
 	<!-- Modal Card That Pops Up on Click of Icon  -->
 
@@ -223,8 +278,8 @@
 				<button class="delete" aria-label="close"></button>
 			</header>
 			<section class="modal-card-body">
-				<p> 1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime odio optio tempore voluptas totam 
-					nam nihil nobis nesciunt dolorem, illum ut quam fuga aliquid eveniet quibusdam ratione asperiores id.</p>
+				<p> 1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime odio optio tempore voluptas totam nam nihil nobis
+					nesciunt dolorem, illum ut quam fuga aliquid eveniet quibusdam ratione asperiores id.</p>
 			</section>
 			<footer class="modal-card-foot">
 				<button class="button is-success">Save changes</button>

@@ -1,10 +1,19 @@
+@media (min-width: 769px) {
+  /* Adjusts  positioning of button to align with form inputs on large screen sizes */
+  .button__calculate {
+    position: relative;
+    top: 38%;
+  }
+}
+
 html {
   height: 100%;
 }
 
 body {
-  min-height: 100%;
-  margin-top: 10%;
+  /* Before I added canvas rules the rule below helped to ensure that background color/image took up entire screen */
+  /* min-height: 100%;*/
+  margin-top: 5%;
 }
 
 .section__title--top {
@@ -12,13 +21,21 @@ body {
   padding-bottom: 20px;
 }
 
+.form__inputs{
+  margin-bottom: 5%;
+}
+
+.section__paragraph--top {
+  margin-bottom: 5%;
+}
+
 .section__cards {
   display: none;
 }
 
-.card {
+/* .card {
   background-color: #af90a9;
-}
+} */
 
 hr {
   width: 20%;
@@ -48,6 +65,7 @@ hr {
   position: relative;
   bottom: 10px;
   right: 5px;
+  cursor: pointer;
 }
 
 /* ---- reset ---- */
@@ -74,8 +92,8 @@ canvas {
   top: 0;
   left: 0;
   position: fixed;
-  background-color: #9ce1c4;
-  /* background-image: linear-gradient(45deg, #8baaaa 0%, #ae8b9c 100%); */
+  /* background-color: #9ce1c4; */
+  background-image: linear-gradient(45deg, #8baaaa 0%, #ae8b9c 100%);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
