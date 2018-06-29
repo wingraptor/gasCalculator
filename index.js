@@ -125,10 +125,10 @@ function getInputs() {
   let vehicleAge = $("#age").val();
   let fuelType = $("#fuel-type").val();
   let fuelEfficiencyMpg = $("#fuel-efficiency").val();
-  userInputs.push(Number(fuelEfficiencyMpg));
-  userInputs.push(Number(odometerReadingKm));
-  userInputs.push(Number(vehicleAge));
-  userInputs.push(fuelType);
+  userInputs[0] = Number(fuelEfficiencyMpg);
+  userInputs[1] = Number(odometerReadingKm);
+  userInputs[2] = Number(vehicleAge);
+  userInputs[3] = fuelType;
 }
 
 
