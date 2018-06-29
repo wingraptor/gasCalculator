@@ -12,7 +12,7 @@ html {
 
 body {
   /* Before I added canvas rules the rule below helped to ensure that background color/image took up entire screen */
-  /* min-height: 100%;*/
+  /* min-height: 100%; */
   margin-top: 5%;
 }
 

@@ -91,7 +91,7 @@ function outputInserter() {
 
 //Fades out Input Fields on Click of Calculate button -- This also calls functions that returns data to page
 function elementsFadeOut() {
-  $(".form__inputs,.section__cards--fuel-savings").fadeOut(function() {
+  $(".form__inputs").fadeOut(function() {
     if (!isFaded) {
       $(".section__cards").fadeIn();
       scrollTop();
@@ -107,9 +107,12 @@ function elementsFadeOut() {
 // When recalculate button is clicked; remove output cards from page and fade in inputs
 function recalculate(){
   $(".button__recalculate").on("click", function () {
+    // This removes event binder from recalc button after it is bound; this is important because each call of recalculate() adds a new binder
+    // to button and therefore after multiple calls(x number of calls), if recalc button is clicked then the callback function is called x times on subsequent clicks
+    $(".button__recalculate").unbind("click"); 
     $(".section__cards").fadeOut(function () {
       scrollTop();
-      $(".form__inputs,.section__cards--fuel-savings").fadeIn();
+      $(".form__inputs").fadeIn();
       isFaded = !isFaded;
     });
   });
