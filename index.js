@@ -6,21 +6,43 @@ let outputSpans = document.getElementsByClassName("span__output");
 
 //Fuel Rates From June 2016 Until June 2018
 const petrolFuelRate = [
-  2.85, 2.93, 2.85, 2.82, 2.91, 2.84, 2.91, 2.78, 2.98, 2.96, 2.97, 
+  2.85, 2.93, 2.85, 2.82, 2.91, 2.84, 2.91, 2.78, 2.98, 2.96, 2.97,
   3, 3.18, 2.94, 3.16, 3.25, 3.38, 3.19, 3.27, 3.35, 3.29, 3.44, 3.31,
   3.40, 3.60
 ]
 const dieselFuelRate = [
-  1.99, 2.07, 2.04, 1.95, 2.09, 2.07, 2.12, 2.15, 2.17, 2.21, 2.28, 
+  1.99, 2.07, 2.04, 1.95, 2.09, 2.07, 2.12, 2.15, 2.17, 2.21, 2.28,
   2.15, 2.13, 2.37, 2.35, 2.46, 2.37, 2.52, 2.58, 2.63, 2.60, 2.60,
   2.61, 2.80
 ]
 
 
+document.addEventListener('DOMContentLoaded', function () {
+  // Get all "navbar-burger" elements
+  var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
+  // Check if there are any navbar burgers
+  if ($navbarBurgers.length > 0) {
+
+    // Add a click event on each of them
+    $navbarBurgers.forEach(function ($el) {
+      $el.addEventListener('click', function () {
+
+        // Get the target from the "data-target" attribute
+        var target = $el.dataset.target;
+        var $target = document.getElementById(target);
+
+        // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+        $el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+
+      });
+    });
+  }
+});
 
 // Allows specific Modal to be loaded to page on click of specific event
-function modalManager(){
+function modalManager() {
   $(".icon").on("click", function () {
     if ($(this).attr("id") === "taxes-info") {
       modalOpener("#taxes-info-modal");
@@ -37,16 +59,16 @@ function modalManager(){
   });
 }
 // Adds the class that allows the modal to load to page
-function modalOpener(ID){
+function modalOpener(ID) {
   $(ID).addClass("is-active");
 }
 
 // Removes the modal from the page by removing the is-active class
-function modalCloser(ID){
-  $(ID + " .modal-background").on("click", function(){
+function modalCloser(ID) {
+  $(ID + " .modal-background").on("click", function () {
     $(ID).removeClass("is-active");
   });
-  $(ID + " .modal-card .modal-card-head .delete").on("click", function() {
+  $(ID + " .modal-card .modal-card-head .delete").on("click", function () {
     $(ID).removeClass("is-active");
   });
   $(ID + " .modal-background").on("click", function () {
@@ -91,7 +113,7 @@ function outputInserter() {
 
 //Fades out Input Fields on Click of Calculate button -- This also calls functions that returns data to page
 function elementsFadeOut() {
-  $(".form__inputs").fadeOut(function() {
+  $(".form__inputs").fadeOut(function () {
     if (!isFaded) {
       $(".section__cards").fadeIn();
       scrollTop();
@@ -105,11 +127,11 @@ function elementsFadeOut() {
 }
 
 // When recalculate button is clicked; remove output cards from page and fade in inputs
-function recalculate(){
+function recalculate() {
   $(".button__recalculate").on("click", function () {
     // This removes event binder from recalc button after it is bound; this is important because each call of recalculate() adds a new binder
     // to button and therefore after multiple calls(x number of calls), if recalc button is clicked then the callback function is called x times on subsequent clicks
-    $(".button__recalculate").unbind("click"); 
+    $(".button__recalculate").unbind("click");
     $(".section__cards").fadeOut(function () {
       scrollTop();
       $(".form__inputs").fadeIn();
@@ -219,8 +241,7 @@ function monthlyFuelTaxes() {
   return (monthlyFuelUsage() * newTaxRate).toFixed(2);
 }
 
-function taxesPerKm(){
+function taxesPerKm() {
   return (newTaxRate / mileageConverter() * 100).toFixed(2);
 }
 
-particlesJS("particles-js", { "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ff0909" }, "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" }, "polygon": { "nb_sides": 5 }, "image": { "src": "img/github.svg", "width": 100, "height": 100 } }, "opacity": { "value": 0.5, "random": false, "anim": { "enable": false, "speed": 1, "opacity_min": 0.1, "sync": false } }, "size": { "value": 3, "random": true, "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false } }, "line_linked": { "enable": true, "distance": 150, "color": "#000000", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 6, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 } } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true }, "modes": { "grab": { "distance": 400, "line_linked": { "opacity": 1 } }, "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 }, "repulse": { "distance": 200, "duration": 0.4 }, "push": { "particles_nb": 4 }, "remove": { "particles_nb": 2 } } }, "retina_detect": true }); var count_particles, stats, update; stats = new Stats; stats.setMode(0); stats.domElement.style.position = 'absolute'; stats.domElement.style.left = '0px'; stats.domElement.style.top = '0px'; document.body.appendChild(stats.domElement); count_particles = document.querySelector('.js-count-particles'); update = function () { stats.begin(); stats.end(); if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) { count_particles.innerText = window.pJSDom[0].pJS.particles.array.length; } requestAnimationFrame(update); }; requestAnimationFrame(update);;

@@ -13,7 +13,7 @@ html {
 body {
   /* Before I added canvas rules the rule below helped to ensure that background color/image took up entire screen */
   /* min-height: 100%; */
-  margin-top: 5%;
+  /* margin-top: 5%; */
 }
 
 .section__title--top {
@@ -21,16 +21,25 @@ body {
   padding-bottom: 20px;
 }
 
+
 .form__inputs{
   margin-bottom: 5%;
 }
 
-.section__paragraph--top {
+/* .section__paragraph--top {
   margin-bottom: 5%;
-}
+} */
 
 .section__cards {
   display: none;
+}
+
+.section__cards--paragraph{
+  line-height: 2em;
+}
+
+.section__cards--fuel-savings{
+  margin-top: 3%;
 }
 
 /* .card {
@@ -55,17 +64,24 @@ hr {
 }
 
 .span__output {
-  color: #9ce1c4;
+  color: #6477cc;
 }
 
 /* Colors, resizes and repositions the info. icon on calculator cards */
 .icon {
-  color: #9ce1c4;
+  color: #6477cc;
   font-size: 0.5em;
   position: relative;
   bottom: 10px;
   right: 5px;
   cursor: pointer;
+}
+
+/*Keeps Footer text fixed to bottom of page */
+.footer__text{
+  position:fixed;
+  bottom:0px;
+  left: 10px;
 }
 
 /* ---- reset ---- */
@@ -92,8 +108,11 @@ canvas {
   top: 0;
   left: 0;
   position: fixed;
-  /* background-color: #9ce1c4; */
-  background-image: linear-gradient(45deg, #8baaaa 0%, #ae8b9c 100%);
+  /* background-color: slategray; */
+  /* background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%); */
+  /* background-image: linear-gradient(to top, #ebbba7 0%, #cfc7f8 100%); */
+  /* background-image: linear-gradient(to top, #37ecba 0%, #72afd3 100%); */
+  background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;

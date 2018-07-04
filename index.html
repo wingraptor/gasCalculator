@@ -9,8 +9,43 @@
 	<link rel="stylesheet" href="index.css">
 </head>
 
-<body>
+<body class="has-navbar-fixed-top">
 	<div id="particles-js"></div>
+
+	<!-- Navbar -->
+	<nav class="navbar is-transparent is-fixed-top">
+		<div class="navbar-brand">
+			<a class="navbar-item" href="https://bulma.io">
+				<img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+			</a>
+			<a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+			</a>
+		</div>
+		<div id="navMenu" class="navbar-menu">
+			<div class="navbar-start">
+				<a class="navbar-item" href="index.html">
+					Calculator
+				</a>
+				<a class="navbar-item" href="historical.html">
+					Fuel Prices
+				</a>
+				<a class="navbar-item" href="Tips.html">
+					Fuel Saving Tips
+				</a>
+			</div>
+			<div class="navbar-end">
+				<span class="navbar-item">Gas Price: Bds $3.96/L</span>
+				<p class="navbar-item">Diesel Price: Bds $2.80/L</p>
+			</div>
+		</div>
+	</nav>
+
+	<!-- <span>Current Gas Price: Bds $3.96/L</span>
+	<p>Current Diesel Price: Bds $2.80/L</p> -->
+
 	<section class="section section__title--top">
 		<h1 class="title">
 			BAJAN GAS PRICE CALCULATOR
@@ -19,12 +54,25 @@
 	</section>
 	<section class="section section__paragraph--top">
 		<div class="container">
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, expedita quos corrupti minus cupiditate ipsum iste molestiae
-				possimus ut vero reprehenderit, minima laudantium fugit autem est sapiente porro totam laboriosam. Lorem ipsum dolor
-				sit amet consectetur adipisicing elit. Omnis, expedita quos corrupti minus cupiditate ipsum iste molestiae possimus ut
-				vero reprehenderit, minima laudantium fugit autem est sapiente porro totam laboriosam.
-			</p>
+			<div class="content  is-size-5 is-size-6-mobile">
+				<p>
+					On July 1st 2018, the Government of Barbados implemented a new tax on fuel to essentially replace road tax. This tax is levied
+					at the rate of 40 cents a litre on both petrol and diesel, and five cents a litre on kerosene. The Government of Barbados
+					hopes to raise
+					<a href="https://www.barbadosadvocate.com/news/nsrl-road-tax-be-removed-july-1" target="_blank">$80 million per year</a>
+					from this tax compared with the $65 million brought in from the previous road tax system.
+				</p>
+				<p>
+					Whilst the previous road tax was a fixed number which depended on the vehicle type, the new fuel tax depends on how much
+					fuel you use which in turn depends on much you drive and your vehicle's fuel efficiency. The calculator will allow you
+					to get an estimate of:
+				</p>
+				<ul>
+					<li>How much you'll spend in fuel taxes</li>
+					<li>How much you paid in fuel before the new tax</li>
+					<li>How much fuel you use</li>
+				</ul>
+			</div>
 		</div>
 	</section>
 
@@ -53,7 +101,7 @@
 					</div>
 					<div class="column">
 						<div class="field">
-							<label class="label is-large">Age of Vehicle</label>
+							<label class="label is-large">Vehicle Age</label>
 							<div class="control">
 								<input class="input is-large" type="number" min="1" max="50" placeholder="Age of Vehicle/years" id="age" required>
 							</div>
@@ -80,60 +128,6 @@
 		</section>
 	</form>
 
-	<!-- Fuel Saving Tips Cards -->
-	<!-- <section class="section__cards--fuel-savings">
-		<div class="container">
-			<div class="columns">
-				<div class="column">
-					<div class="box">
-						<div class="content">
-							<h1>Fuel Saving Tips</h1>
-							<ul>
-								<li>
-									<strong>Accelerate Smoothly</strong>: Avoid accelerate rapidly as this uses more fuel</li>
-								<li>
-									<strong>Monitor Your Tires</strong>: Check tire pressures weekly; under-inflated tires reduce fuel efficiency.</li>
-								<li>
-									<strong>Avoid using the A/C</strong>: Using A/C increases fuel usage at lower speeds,</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="column">
-					<div class="box">
-						<div class="content">
-							<h1>Fuel Saving Tips</h1>
-							<ul>
-								<li>
-									<strong>Close Windows when possible</strong>: Open windows cause drag which reduces fuel efficiency.</li>
-								<li>
-									<strong>Don't carry unnecessary weight</strong>: Avoid keeping items in your vehicle as more weight = more fuel usage.</li>
-								<li>
-									<strong>Drive Less</strong>: Consider walking or carpooling</li>
-								</ol>
-						</div>
-					</div>
-				</div>
-				<div class="column">
-					<div class="box">
-						<div class="content">
-							<h1>Fuel Saving Tips</h1>
-							<ul>
-								<li>
-									<strong>Tune up your engine</strong>: A well-tuned engine is an efficient one</li>
-								<li>
-									<strong>Replace you fuel filters</strong>: This is especially if you live in dusty areas</li>
-								<li>
-									<strong>Reduce your speed</strong>: The faster you drive; the more fuel you use.</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section> -->
-
-
 	<!--------------- Gas Calculator Cards -------------->
 	<section class="section section__cards">
 		<div class="container">
@@ -141,8 +135,8 @@
 
 				<!------   Taxes Card    ---- -->
 				<div class="column">
-					<div class="card">
-						<div class="card-content">
+					<div class="box">
+						<div class="content has-text-centered">
 							<p class="title">
 								You Will Spend
 								<span class="icon is-small" id="taxes-info">
@@ -150,21 +144,15 @@
 								</span>
 								:
 							</p>
+							<p class="section__cards--paragraph">
+								<span class="span__output" id="taxes-yearly"></span> in fuel taxes per year.
+								<br>
+								<span class="span__output" id="taxes-monthly"></span> in fuel taxes per month.
+								<br>
+								<span class="span__output" id="taxes-perKm"></span> in fuel taxes per 100km.
+							</p>
 						</div>
-						<div class="content">
-							<ul>
-								<li>
-									<span class="span__output" id="taxes-yearly"></span> in fuel taxes per year.
-								</li>
-								<li>
-									<span class="span__output" id="taxes-monthly"></span> in fuel taxes per month.
-								</li>
-								<li>
-									<span class="span__output" id="taxes-perKm"></span> in fuel taxes per 100km.
-								</li>
-							</ul>
-						</div>
-						<footer class="card-footer">
+						<!-- <footer class="card-footer">
 							<p class="card-footer-item">
 								<span>
 									View on
@@ -177,14 +165,14 @@
 									<a href="#">Facebook</a>
 								</span>
 							</p>
-						</footer>
+						</footer> -->
 					</div>
 				</div>
 
 				<!------   Expenses Card     ------>
 				<div class="column">
-					<div class="card">
-						<div class="card-content">
+					<div class="box">
+						<div class="content has-text-centered">
 							<p class="title">
 								You Have Spent
 								<span class="icon is-small" id="expenses-info">
@@ -192,18 +180,14 @@
 								</span>
 								:
 							</p>
+							<p class="section__cards--paragraph">
+								<span class="span__output" id="spend-total"></span> in fuel in total.
+								<br>
+								<span class="span__output" id="spend-yearly"></span> in fuel per year.
+								<br>
+								<span class="span__output" id="spend-monthly"></span> in fuel per month.</p>
 						</div>
-						<div class="content">
-							<ul>
-								<li>
-									<span class="span__output" id="spend-total"></span> in fuel in total.</li>
-								<li>
-									<span class="span__output" id="spend-yearly"></span> in fuel per year.</li>
-								<li>
-									<span class="span__output" id="spend-monthly"></span> in fuel per month.</li>
-							</ul>
-						</div>
-						<footer class="card-footer">
+						<!-- <footer class="card-footer">
 							<p class="card-footer-item">
 								<span>
 									View on
@@ -216,14 +200,14 @@
 									<a href="#">Facebook</a>
 								</span>
 							</p>
-						</footer>
+						</footer> -->
 					</div>
 				</div>
 
 				<!------   Fuel Card     ------>
 				<div class="column">
-					<div class="card">
-						<div class="card-content">
+					<div class="box">
+						<div class="content has-text-centered">
 							<p class="title">
 								You Have Used
 								<span class="icon is-small" id="fuel-info">
@@ -231,18 +215,14 @@
 								</span>
 								:
 							</p>
+							<p class="section__cards--paragraph">
+								<span class="span__output" id="fuel-total"></span> litres of fuel in total.
+								<br>
+								<span class="span__output" id="yearly-total"></span> litres of fuel per year.
+								<br>
+								<span class="span__output" id="monthly-total"></span> litres of fuel per month.</p>
 						</div>
-						<div class="content">
-							<ul>
-								<li>
-									<span class="span__output" id="fuel-total"></span> litres of fuel in total.</li>
-								<li>
-									<span class="span__output" id="yearly-total"></span> litres of fuel per year.</li>
-								<li>
-									<span class="span__output" id="monthly-total"></span> litres of fuel per month.</li>
-							</ul>
-						</div>
-						<footer class="card-footer">
+						<!-- <footer class="card-footer">
 							<p class="card-footer-item">
 								<span>
 									View on
@@ -255,7 +235,7 @@
 									<a href="#">Facebook</a>
 								</span>
 							</p>
-						</footer>
+						</footer> -->
 					</div>
 				</div>
 			</div>
@@ -281,10 +261,6 @@
 				<p> 1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime odio optio tempore voluptas totam nam nihil nobis
 					nesciunt dolorem, illum ut quam fuga aliquid eveniet quibusdam ratione asperiores id.</p>
 			</section>
-			<footer class="modal-card-foot">
-				<button class="button is-success">Save changes</button>
-				<button class="button">Cancel</button>
-			</footer>
 		</div>
 	</div>
 
@@ -299,10 +275,6 @@
 				<p>2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime odio optio tempore voluptas totam nam nihil nobis
 					nesciunt dolorem, illum ut quam fuga aliquid eveniet quibusdam ratione asperiores id.</p>
 			</section>
-			<footer class="modal-card-foot">
-				<button class="button is-success">Save changes</button>
-				<button class="button">Cancel</button>
-			</footer>
 		</div>
 	</div>
 
@@ -324,11 +296,17 @@
 		</div>
 	</div>
 
+	<p class="footer__text has-text-weight-bold">Made with
+		<span style="color: #e25555;">&hearts;</span> by
+		<a href="https://www.akonobrathwaite.com" target="_target">Akono</a>
+	</p>
 
 	<!-- Particles.js, FontAwesome, jQuery and Index.js -->
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+	<script src="helper.js"></script>
 	<script src="index.js"></script>
 </body>
 
