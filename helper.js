@@ -4,7 +4,7 @@ let graph2 = document.getElementById("diesel-prices");
 // Gas Prices
 var trace1 = {
   x: ["Jul'17", "Aug'17", "Sept'17", "Oct'17", "Nov'17", "Dec'17", "Jan'18", "Feb'18", "Mar'18", "Apr'18",
-    "May'18", "Jun'18", "July'18"],
+    "May'18", "Jun'18", "Jul'18"],
   y: [2.94, 3.16, 3.25, 3.38, 3.19, 3.27, 3.35, 3.29, 3.44, 3.31,
     3.40, 3.60, 3.96
   ],
@@ -18,7 +18,43 @@ var layout1 = {
   },
   yaxis: {
     title: "Bds $/litre"
-  }
+  },
+  showlegend: false,
+  annotations: [
+    {
+      x: "Jul'17",
+      y: 2.94,
+      xref: 'x',
+      yref: 'y',
+      text: '$2.94',
+      showarrow: true,
+      arrowhead: 5,
+      ax: 0,
+      ay: -40
+    },
+    {
+      x: "Jan'18",
+      y: 3.35,
+      xref: 'x',
+      yref: 'y',
+      text: '$3.35',
+      showarrow: true,
+      arrowhead: 5,
+      ax: 0,
+      ay: -40
+    },
+    {
+      x: "Jul'18",
+      y: 3.96,
+      xref: 'x',
+      yref: 'y',
+      text: '$3.96',
+      showarrow: true,
+      arrowhead: 5,
+      ax: 0,
+      ay: -40
+    },
+  ]
 };
 
 var data = [trace1];
@@ -33,8 +69,8 @@ window.onresize = function() {
 //  Diesel Prices
 var trace2 = {
   x: ["Jul'17", "Aug'17", "Sept'17", "Oct'17", "Nov'17", "Dec'17", "Jan'18", "Feb'18", "Mar'18",
-    "Apr'18", "May'18", "Jun'18", "July'18"],
-  y: [2.37, 2.35, 2.46, 2.37, 2.52, 2.58, 2.63, 2.60, 2.60,
+    "Apr'18", "May'18", "Jun'18", "Jul'18"],
+  y: [2.15, 2.13, 2.37, 2.35, 2.46, 2.37, 2.52, 2.58, 2.63, 2.60, 2.60,
     2.61, 2.80],
   type: 'scatter'
 };
@@ -47,7 +83,42 @@ var layout2 = {
   },
   yaxis: {
     title: 'Bds $/litre'
-  }
+  },
+  annotations: [
+    {
+      x: "Jul'17",
+      y: 2.15,
+      xref: 'x',
+      yref: 'y',
+      text: '$2.15',
+      showarrow: true,
+      arrowhead: 5,
+      ax: 0,
+      ay: -40
+    },
+    {
+      x: "Jan'18",
+      y: 2.52,
+      xref: 'x',
+      yref: 'y',
+      text: '$2.52',
+      showarrow: true,
+      arrowhead: 5,
+      ax: 0,
+      ay: -40
+    },
+    {
+      x: "Jul'18",
+      y: 2.80,
+      xref: 'x',
+      yref: 'y',
+      text: '$2.80',
+      showarrow: true,
+      arrowhead: 5,
+      ax: 0,
+      ay: -40
+    },
+  ]
 };
 var data2 = [trace2];
 
