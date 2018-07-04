@@ -6,6 +6,26 @@
   }
 }
 
+/* On smaller screens display fuel prices widget and remove navbar fuel widgets*/
+@media(max-width: 1087px){
+  .column__fuel-widget{
+    max-width: 105px;
+    background-color: white;
+    border-radius: 5%;
+    display: flex;
+  }
+
+  .navbar-end{
+    display:none;
+  }
+}
+/* On bigger screen sizes hide fuel prices widget */
+@media(min-width: 1088px){
+  .section__fuel-widget{
+    display: none;
+  }
+}
+
 html {
   height: 100%;
 }
@@ -14,6 +34,11 @@ body {
   /* Before I added canvas rules the rule below helped to ensure that background color/image took up entire screen */
   /* min-height: 100%; */
   /* margin-top: 5%; */
+}
+
+.navbar-end{
+  margin-left: 0px;
+  background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
 }
 
 .section__title--top {
@@ -89,6 +114,8 @@ hr {
   margin:0; font:normal 75% Arial, Helvetica, sans-serif; 
 }  */
 
+
+/* Particles.js Canvas */
 canvas {
   display: block;
   vertical-align: bottom;
