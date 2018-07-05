@@ -7,21 +7,24 @@
 }
 
 /* On smaller screens display fuel prices widget and remove navbar fuel widgets*/
-@media(max-width: 1087px){
-  .column__fuel-widget{
+@media (max-width: 1087px) {
+  .column__fuel-widget {
     max-width: 105px;
-    background-color: white;
+    background-color: #cb4b16;
+    color:#e4e2ff;
+    font-weight:700px;
     border-radius: 5%;
     display: flex;
   }
 
-  .navbar-end{
-    display:none;
+  .navbar-end {
+    display: none;
+    font-weight:700px;
   }
 }
 /* On bigger screen sizes hide fuel prices widget */
-@media(min-width: 1088px){
-  .section__fuel-widget{
+@media (min-width: 1088px) {
+  .section__fuel-widget {
     display: none;
   }
 }
@@ -34,11 +37,30 @@ body {
   /* Before I added canvas rules the rule below helped to ensure that background color/image took up entire screen */
   /* min-height: 100%; */
   /* margin-top: 5%; */
+  color: #e4e2ff;
 }
 
-.navbar-end{
+a{
+  color:#714cdf;
+  background-color: transparent;
+}
+a:hover{
+  color:#4922bd;
+}
+.title,
+.label,
+.navbar {
+  color: #e4e2ff;
+}
+
+.navbar {
+  /* background-color: #daeafb; */
+  background-color: #f7741a;
+}
+
+.navbar-end {
   margin-left: 0px;
-  background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
+  background-color: #cb4b16;
 }
 
 .section__title--top {
@@ -46,11 +68,26 @@ body {
   padding-bottom: 20px;
 }
 
+.form__columns {
+  background-color: #35364b;
+  border-radius: 10px;
+}
 
-.form__inputs{
+.form__inputs {
   margin-bottom: 5%;
 }
 
+.input,
+.textarea,
+#fuel-type {
+  background-color: #2c2d40;
+  color:#e4e2ff;
+}
+
+.input::placeholder {
+  color: #e4e2ff;
+  opacity: 1;
+}
 /* .section__paragraph--top {
   margin-bottom: 5%;
 } */
@@ -59,11 +96,11 @@ body {
   display: none;
 }
 
-.section__cards--paragraph{
+.section__cards--paragraph {
   line-height: 2em;
 }
 
-.section__cards--fuel-savings{
+.section__cards--fuel-savings {
   margin-top: 3%;
 }
 
@@ -76,6 +113,10 @@ hr {
   margin: 24px auto 24px auto;
 }
 
+.button{
+  background-color:#f7741a;
+  color:white;
+}
 .button__calculate {
   display: block;
   margin: 0 auto 0 auto;
@@ -89,12 +130,16 @@ hr {
 }
 
 .span__output {
-  color: #6477cc;
+  color: #f7741a;
 }
 
+.box,strong, .content h1{
+  background-color:#35364b;
+  color:#e4e2ff;
+}
 /* Colors, resizes and repositions the info. icon on calculator cards */
 .icon {
-  color: #6477cc;
+  color: #f7741a;
   font-size: 0.5em;
   position: relative;
   bottom: 10px;
@@ -103,9 +148,9 @@ hr {
 }
 
 /*Keeps Footer text fixed to bottom of page */
-.footer__text{
-  position:fixed;
-  bottom:0px;
+.footer__text {
+  position: fixed;
+  bottom: 0px;
   left: 10px;
 }
 
@@ -113,7 +158,6 @@ hr {
 /* body{ 
   margin:0; font:normal 75% Arial, Helvetica, sans-serif; 
 }  */
-
 
 /* Particles.js Canvas */
 canvas {
@@ -135,11 +179,12 @@ canvas {
   top: 0;
   left: 0;
   position: fixed;
-  /* background-color: slategray; */
+  /* background-color: #333333; */
+  background-color: #14151c;
   /* background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%); */
   /* background-image: linear-gradient(to top, #ebbba7 0%, #cfc7f8 100%); */
   /* background-image: linear-gradient(to top, #37ecba 0%, #72afd3 100%); */
-  background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
+  /* background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
