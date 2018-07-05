@@ -5,6 +5,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Barbados Gas Price Calculator</title>
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
 	<link rel="stylesheet" href="index.css">
 </head>
@@ -93,9 +95,9 @@
 				<div class="columns form__columns">
 					<div class="column">
 						<div class="field">
-							<label class="label is-large">Fuel Efficiency</label>
+							<label class="label is-medium">Fuel Efficiency</label>
 							<div class="control">
-								<input class="input is-large" type="number" min="1" placeholder="Fuel Efficiency/MPG" id="fuel-efficiency" required>
+								<input class="input is-medium" type="number" min="1" placeholder="Fuel Efficiency/MPG" id="fuel-efficiency" required>
 							</div>
 							<p class="help">Find your car's fuel efficiency
 								<a href="http://www.fuelly.com/car" target="_blank">here</a>
@@ -104,24 +106,24 @@
 					</div>
 					<div class="column">
 						<div class="field">
-							<label class="label is-large">Odometer Reading</label>
+							<label class="label is-medium">Odometer Reading</label>
 							<div class="control">
-								<input class="input is-large" type="number" min="1" placeholder="Odom. Reading/km" id="odometer" required>
+								<input class="input is-medium" type="number" min="1" placeholder="Odom. Reading/km" id="odometer" required>
 							</div>
 						</div>
 					</div>
 					<div class="column">
 						<div class="field">
-							<label class="label is-large">Vehicle Age</label>
+							<label class="label is-medium">Vehicle Age</label>
 							<div class="control">
-								<input class="input is-large" type="number" min="1" max="50" placeholder="Age of Vehicle/years" id="age" required>
+								<input class="input is-medium" type="number" min="1" max="50" placeholder="Age of Vehicle/years" id="age" required>
 							</div>
 						</div>
 					</div>
 					<div class="column is-narrow">
-						<label class="label is-large">Type of Fuel</label>
+						<label class="label is-medium">Type of Fuel</label>
 						<div class="control">
-							<div class="select is-large">
+							<div class="select is-medium">
 								<select id="fuel-type">
 									<option>Gas</option>
 									<option>Diesel</option>
@@ -130,9 +132,9 @@
 						</div>
 					</div>
 
-					<div class="column">
+					<div class="column is-narrow div__button">
 						<!-- Calculate Button -->
-						<button class="button is-large button__calculate">Calculate</button>
+						<button class="button is-medium button__calculate">Calculate</button>
 					</div>
 				</div>
 			</div>

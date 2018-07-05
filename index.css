@@ -38,6 +38,7 @@ body {
   /* min-height: 100%; */
   /* margin-top: 5%; */
   color: #e4e2ff;
+  font-family: 'Roboto', sans-serif;
 }
 
 a{
@@ -51,6 +52,7 @@ a:hover{
 .label,
 .navbar {
   color: #e4e2ff;
+  font-family: Hack, monospace;
 }
 
 .navbar {
@@ -91,6 +93,10 @@ a:hover{
 /* .section__paragraph--top {
   margin-bottom: 5%;
 } */
+
+.div__button{
+  padding-right:3%;
+}
 
 .section__cards {
   display: none;
