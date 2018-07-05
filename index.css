@@ -114,6 +114,15 @@ a:hover{
   background-color: #af90a9;
 } */
 
+.modal-card-foot, .modal-card-head, .modal-card-title{
+  background-color:#2c2d40;
+  color:#e4e2ff;
+}
+
+.modal-card-body{
+  background-color:#35364b;
+}
+
 hr {
   width: 20%;
   margin: 24px auto 24px auto;
