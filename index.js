@@ -16,6 +16,12 @@ const dieselFuelRate = [
   2.61, 2.80
 ]
 
+// Fuel Rates From Most Recent Month
+
+const currentPetrolFuelRate = 3.96;
+const currentDieselFuelRate = 3.21;
+
+// Controls the nav-burger toggle
 
 document.addEventListener('DOMContentLoaded', function () {
   // Get all "navbar-burger" elements
@@ -92,11 +98,11 @@ function outputInserter() {
       case "spend-total":
         outputSpans[i].textContent = "$" + totalFuelCosts();
         break;
-      case "spend-yearly":
+      case "spend-yearly-pre":
         outputSpans[i].textContent = "$" + yearlyFuelCosts();
         break;
-      case "spend-monthly":
-        outputSpans[i].textContent = "$" + monthlyFuelCosts();
+      case "spend-yearly-post":
+        outputSpans[i].textContent = "$" + currentYearlyFuelCosts();
         break;
       case "fuel-total":
         outputSpans[i].textContent = totalFuelUsed();
@@ -110,6 +116,22 @@ function outputInserter() {
     }
   }
 }
+
+
+// Acts as a toggle  to return totals spent on fuel on a yearly and monthly time periods
+$("#monthly-yearly-toggle").on("click",function(){
+  if ($(this).text() == "Monthly") {
+    $("#spend-yearly-pre").text("$" + monthlyFuelCosts());
+    $("#spend-yearly-post").text("$" + currentMonthlyFuelCosts());
+    $(".time-period").text("month");
+    $(this).text("Yearly");
+  } else {
+    $("#spend-yearly-pre").text("$" + yearlyFuelCosts());
+    $("#spend-yearly-post").text("$" + currentYearlyFuelCosts());
+    $(".time-period").text("year");
+    $(this).text("Monthly");
+  }
+});
 
 //Fades out Input Fields on Click of Calculate button -- This also calls functions that returns data to page
 function elementsFadeOut() {
@@ -182,7 +204,7 @@ function avgDieselFuelRates(fuelRate) {
   return sum / fuelRate.length;
 }
 
-// Calculates total fuel costs from June 2016 to June 2018
+// Calculates total fuel costs using average fuel price June 2016 to June 2018
 function totalFuelCosts() {
   if (userInputs[3] === "Gas") {
     return (totalFuelUsed() * avgPetrolFuelRates(petrolFuelRate)).toFixed(2);
@@ -191,7 +213,7 @@ function totalFuelCosts() {
   }
 }
 
-// Calculates yearly fuel costs from June 2016 to June 2018
+// Calculates yearly fuel costs using average fuel price from June 2016 to June 2018
 function yearlyFuelCosts() {
   if (userInputs[3] === "Gas") {
     return (yearlyFuelUsage() * avgPetrolFuelRates(petrolFuelRate)).toFixed(2);
@@ -200,12 +222,30 @@ function yearlyFuelCosts() {
   }
 }
 
-// Calculates monthly fuel costs from June 2016 to June 2018
+// Calculates monthly fuel costs using average fuel price from June 2016 to June 2018
 function monthlyFuelCosts() {
   if (userInputs[3] === "Gas") {
     return (monthlyFuelUsage() * avgPetrolFuelRates(petrolFuelRate)).toFixed(2);
   } else {
     return (monthlyFuelUsage() * avgDieselFuelRates(dieselFuelRate)).toFixed(2);
+  }
+}
+
+// Calculates yearly fuel costs using fuel price from most recent month.
+function currentYearlyFuelCosts() {
+  if (userInputs[3] === "Gas") {
+    return (yearlyFuelUsage() * currentPetrolFuelRate).toFixed(2);
+  } else {
+    return (yearlyFuelUsage() * currentDieselFuelRate).toFixed(2);
+  }
+}
+
+// Calculates monthly fuel costs using fuel price from most recent month.
+function currentMonthlyFuelCosts() {
+  if (userInputs[3] === "Gas") {
+    return (monthlyFuelUsage() * currentPetrolFuelRate).toFixed(2);
+  } else {
+    return (monthlyFuelUsage() * currentDieselFuelRate).toFixed(2);
   }
 }
 
@@ -231,7 +271,6 @@ function monthlyFuelUsage() {
 }
 
 // Calculates yearly taxes associated with new Fuel Tax
-
 function yearlyFuelTaxes() {
   return (yearlyFuelUsage() * newTaxRate).toFixed(2);
 }
@@ -241,6 +280,7 @@ function monthlyFuelTaxes() {
   return (monthlyFuelUsage() * newTaxRate).toFixed(2);
 }
 
+//Calculates amount paid in taxes per 100km
 function taxesPerKm() {
   return (newTaxRate / mileageConverter() * 100).toFixed(2);
 }

@@ -79,13 +79,8 @@
 				<p>
 					Whilst the previous road tax was a fixed number which depended on the vehicle type, the new fuel tax depends on how much
 					fuel you use which in turn depends on much you drive and your vehicle's fuel efficiency. The calculator will allow you
-					to get an estimate of:
+					to get an estimate of the amount that you'll spend in fuel taxes, a comparison of totals spent pre- and post- fuel tax and you fuel usages. 
 				</p>
-				<ul>
-					<li>How much you'll spend in fuel taxes</li>
-					<li>How much you paid in fuel before the new tax</li>
-					<li>How much fuel you use</li>
-				</ul>
 			</div>
 		</div>
 	</section>
@@ -152,11 +147,10 @@
 					<div class="box">
 						<div class="content has-text-centered">
 							<p class="title">
-								You Will Spend
+								Fuel Tax
 								<span class="icon is-small" id="taxes-info">
 									<i class="fas fa-info-circle"></i>
 								</span>
-								:
 							</p>
 							<p class="section__cards--paragraph">
 								<span class="span__output" id="taxes-yearly"></span> in fuel taxes per year.
@@ -183,23 +177,22 @@
 					</div>
 				</div>
 
-				<!------   Expenses Card     ------>
+				<!------   Total Costs Card    ------>
 				<div class="column">
 					<div class="box">
 						<div class="content has-text-centered">
 							<p class="title">
-								You Have Spent
+								Total Costs
 								<span class="icon is-small" id="expenses-info">
 									<i class="fas fa-info-circle"></i>
 								</span>
-								:
 							</p>
 							<p class="section__cards--paragraph">
-								<span class="span__output" id="spend-total"></span> in fuel in total.
+								<!-- <span class="span__output" id="spend-total"></span> in fuel in total. -->
+								<span class="span__output" id="spend-yearly-pre"></span> in fuel/<span class=time-period>year</span> (pre-tax).
 								<br>
-								<span class="span__output" id="spend-yearly"></span> in fuel per year.
-								<br>
-								<span class="span__output" id="spend-monthly"></span> in fuel per month.</p>
+								<span class="span__output" id="spend-yearly-post"></span> in fuel/<span class=time-period>year</span> (post-tax).</p>
+								<button class="button" id="monthly-yearly-toggle">Monthly</button>
 						</div>
 						<!-- <footer class="card-footer">
 							<p class="card-footer-item">
@@ -218,16 +211,15 @@
 					</div>
 				</div>
 
-				<!------   Fuel Card     ------>
+				<!------   Fuel Usage Card     ------>
 				<div class="column">
 					<div class="box">
 						<div class="content has-text-centered">
 							<p class="title">
-								You Have Used
+								Total Usage
 								<span class="icon is-small" id="fuel-info">
 									<i class="fas fa-info-circle"></i>
 								</span>
-								:
 							</p>
 							<p class="section__cards--paragraph">
 								<span class="span__output" id="fuel-total"></span> litres of fuel in total.
@@ -268,12 +260,18 @@
 		<div class="modal-background"></div>
 		<div class="modal-card">
 			<header class="modal-card-head">
-				<p class="modal-card-title">Modal title</p>
+				<p class="modal-card-title">What do these values mean?</p>
 				<button class="delete" aria-label="close"></button>
 			</header>
 			<section class="modal-card-body">
-				<p> 1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime odio optio tempore voluptas totam nam nihil nobis
-					nesciunt dolorem, illum ut quam fuga aliquid eveniet quibusdam ratione asperiores id.</p>
+				<div class="content">
+					<p>These values give the
+						<strong>approximate</strong> amount that you will be paying for the fuel tax implemented in July 2018. This is charged at a
+						rate of $0.40/L. Note that VAT is not included in this calculation. </p>
+					<p>This value is calculated based on your fuel consumption which depends on your distance travelled and fuel efficiency
+						of your vehicle.
+					</p>
+				</div>
 			</section>
 		</div>
 	</div>
@@ -282,12 +280,15 @@
 		<div class="modal-background"></div>
 		<div class="modal-card">
 			<header class="modal-card-head">
-				<p class="modal-card-title">Modal title</p>
+				<p class="modal-card-title">What do these values mean?</p>
 				<button class="delete" aria-label="close"></button>
 			</header>
 			<section class="modal-card-body">
-				<p>2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime odio optio tempore voluptas totam nam nihil nobis
-					nesciunt dolorem, illum ut quam fuga aliquid eveniet quibusdam ratione asperiores id.</p>
+				<div class="content">
+				<p>These values give the <strong>approximate</strong> total amount that you have spent in given time periods.</p>
+				<p>The pre-tax period represents the amount spent before the fuel tax was implemented and uses the average price of fuel over the past two years.
+					The post-tax period represents the amount spent using the current price of fuel with the fuel tax implemented</p>
+				</div>
 			</section>
 		</div>
 	</div>
@@ -300,13 +301,9 @@
 				<button class="delete" aria-label="close"></button>
 			</header>
 			<section class="modal-card-body">
-				<p>3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius maxime odio optio tempore voluptas totam nam nihil nobis
-					nesciunt dolorem, illum ut quam fuga aliquid eveniet quibusdam ratione asperiores id.</p>
+				<p>These values give the <strong>approximate</strong> of fuel used over a given time period.</p>
+				<p>These values are calculated using your vehicle's fuel efficiency and the average distance driven over the specified time periods.</p>
 			</section>
-			<footer class="modal-card-foot">
-				<button class="button is-success">Save changes</button>
-				<button class="button">Cancel</button>
-			</footer>
 		</div>
 	</div>
 
