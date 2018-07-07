@@ -47,11 +47,11 @@ body {
 }
 
 a {
-  color: #714cdf;
+  color: #f7741a;;
   background-color: transparent;
 }
 a:hover {
-  color: #4922bd;
+  color: #cb4b16;
 }
 .title,
 .label,
