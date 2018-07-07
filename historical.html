@@ -73,7 +73,6 @@
           On this page you will find historical fuel prices from July 2017 to July 2018. These are the retail (pump) prices that are
           set by the Government of Barbados and vary depending on global oil prices.
         </p>
-        </ul>
       </div>
     </div>
   </section>
@@ -83,21 +82,15 @@
       <div class="columns">
         <div class="column">
           <div class="box">
-            <div class="content">
-              <!-- <h1>Gas Prices</h1> -->
-              <div id="gas-prices">
-                <!-- Plotly chart will be drawn inside this DIV -->
-              </div>
+            <!-- Plotly chart will be drawn inside this DIV -->
+            <div id="gas-prices">
             </div>
           </div>
         </div>
         <div class="column">
           <div class="box">
-            <div class="content">
-              <!-- <h1>Diesel Prices</h1> -->
-              <div id="diesel-prices">
-                <!-- Plotly chart will be drawn inside this DIV -->
-              </div>
+            <!-- Plotly chart will be drawn inside this DIV -->
+            <div id="diesel-prices">
             </div>
           </div>
         </div>
@@ -119,12 +112,17 @@
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
   <script>
-    // Call function that loads sweet alert on page resize.
+    // Call function that loads sweet alert on page resize; isTrue ensures that it only runs once. 
+    let isTrue = true;
     $(window).resize(function (e) {
-      screenResize();
+      if (isTrue) {
+        screenResize();
+        isTrue = !isTrue;
+      }
     });
   </script>
-  <script src="helper.js"></script>
+  <script src="plotly.js"></script>
+  <script src="particles.js"></script>
   <script src="index.js"></script>
 </body>
 

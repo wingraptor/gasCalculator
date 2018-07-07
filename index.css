@@ -21,6 +21,11 @@
     display: none;
     font-weight: 700px;
   }
+
+  .navbar-menu{
+    /* Colors background of nav-bar dropdown menu on smaller screen sizes */
+    background-color: #cb4b16; 
+  }
 }
 /* On bigger screen sizes hide fuel prices widget */
 @media (min-width: 1088px) {
