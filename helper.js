@@ -70,7 +70,7 @@ window.onresize = function() {
 var trace2 = {
   x: ["Jul'17", "Aug'17", "Sept'17", "Oct'17", "Nov'17", "Dec'17", "Jan'18", "Feb'18", "Mar'18",
     "Apr'18", "May'18", "Jun'18", "Jul'18"],
-  y: [2.15, 2.13, 2.37, 2.35, 2.46, 2.37, 2.52, 2.58, 2.63, 2.60, 2.60,
+  y: [2.13, 2.37, 2.35, 2.46, 2.37, 2.52, 2.58, 2.63, 2.60, 2.60,
     2.61, 2.80, 3.21],
   type: 'scatter'
 };
@@ -98,10 +98,10 @@ var layout2 = {
     },
     {
       x: "Jan'18",
-      y: 2.52,
+      y: 2.58,
       xref: 'x',
       yref: 'y',
-      text: '$2.52',
+      text: '$2.58',
       showarrow: true,
       arrowhead: 5,
       ax: 0,
@@ -109,10 +109,10 @@ var layout2 = {
     },
     {
       x: "Jul'18",
-      y: 2.80,
+      y: 3.21,
       xref: 'x',
       yref: 'y',
-      text: '$2.80',
+      text: '$3.21',
       showarrow: true,
       arrowhead: 5,
       ax: 0,

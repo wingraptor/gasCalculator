@@ -26,28 +26,24 @@ const currentDieselFuelRate = 3.21;
 document.addEventListener('DOMContentLoaded', function () {
   // Get all "navbar-burger" elements
   var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
   // Check if there are any navbar burgers
   if ($navbarBurgers.length > 0) {
-
     // Add a click event on each of them
     $navbarBurgers.forEach(function ($el) {
       $el.addEventListener('click', function () {
-
         // Get the target from the "data-target" attribute
         var target = $el.dataset.target;
         var $target = document.getElementById(target);
-
         // Toggle the class on both the "navbar-burger" and the "navbar-menu"
         $el.classList.toggle('is-active');
         $target.classList.toggle('is-active');
-
       });
     });
   }
 });
 
-// Allows specific Modal to be loaded to page on click of specific event
+// Allows specific Modal to be loaded to page on click of specific info. icon. 
+// modalCloser is also called which adds event listener to specific components of the modal so that clicking said element results in modal closing 
 function modalManager() {
   $(".icon").on("click", function () {
     if ($(this).attr("id") === "taxes-info") {
@@ -64,6 +60,17 @@ function modalManager() {
     }
   });
 }
+
+
+// Alert users on smaller screensize to rotate phone in case graphs on historical gas prices not displayed. 
+function screenResize() {
+  let w = parseInt(window.innerWidth);
+  if (w <= 569) {
+    //max-width 569px
+    swal("Try rotating device if page is graphs are not displayed properly");
+  }
+}
+
 // Adds the class that allows the modal to load to page
 function modalOpener(ID) {
   $(ID).addClass("is-active");
@@ -138,6 +145,8 @@ function elementsFadeOut() {
   $(".form__inputs").fadeOut(function () {
     if (!isFaded) {
       $(".section__cards").fadeIn();
+      //Sweet alert function
+      swal("If you have not owned this vehicle for at least " + ($("#age").val() * 0.6) +" years then the values below may not be that accurate." + " You can get an idea of the accuracy by comparing the calculated monthly fuel costs(pre-tax) to your actual estimated costs." );
       scrollTop();
       getInputs();
       outputInserter();

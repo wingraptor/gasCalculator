@@ -70,8 +70,8 @@
     <div class="container">
       <div class="content  is-size-5 is-size-6-mobile">
         <p>
-          On this page you will find historical fuel prices for the past year. These are the retail (pump) prices that are set by the
-          Government of Barbados and vary depending on global oil prices.
+          On this page you will find historical fuel prices from July 2017 to July 2018. These are the retail (pump) prices that are
+          set by the Government of Barbados and vary depending on global oil prices.
         </p>
         </ul>
       </div>
@@ -116,7 +116,14 @@
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script>
+    // Call function that loads sweet alert on page resize.
+    $(window).resize(function (e) {
+      screenResize();
+    });
+  </script>
   <script src="helper.js"></script>
   <script src="index.js"></script>
 </body>

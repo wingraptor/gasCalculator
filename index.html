@@ -79,7 +79,8 @@
 				<p>
 					Whilst the previous road tax was a fixed number which depended on the vehicle type, the new fuel tax depends on how much
 					fuel you use which in turn depends on much you drive and your vehicle's fuel efficiency. The calculator will allow you
-					to get an estimate of the amount that you'll spend in fuel taxes, a comparison of totals spent pre- and post- fuel tax and you fuel usages. 
+					to get an estimate of the amount that you'll spend in fuel taxes, a comparison of totals spent pre- and post- fuel tax
+					and you fuel usages.
 				</p>
 			</div>
 		</div>
@@ -189,10 +190,12 @@
 							</p>
 							<p class="section__cards--paragraph">
 								<!-- <span class="span__output" id="spend-total"></span> in fuel in total. -->
-								<span class="span__output" id="spend-yearly-pre"></span> in fuel/<span class=time-period>year</span> (pre-tax).
+								<span class="span__output" id="spend-yearly-pre"></span> in fuel/
+								<span class=time-period>year</span> (pre-tax).
 								<br>
-								<span class="span__output" id="spend-yearly-post"></span> in fuel/<span class=time-period>year</span> (post-tax).</p>
-								<button class="button" id="monthly-yearly-toggle">Monthly</button>
+								<span class="span__output" id="spend-yearly-post"></span> in fuel/
+								<span class=time-period>year</span> (post-tax).</p>
+							<button class="button" id="monthly-yearly-toggle">Monthly</button>
 						</div>
 						<!-- <footer class="card-footer">
 							<p class="card-footer-item">
@@ -285,9 +288,11 @@
 			</header>
 			<section class="modal-card-body">
 				<div class="content">
-				<p>These values give the <strong>approximate</strong> total amount that you have spent in given time periods.</p>
-				<p>The pre-tax period represents the amount spent before the fuel tax was implemented and uses the average price of fuel over the past two years.
-					The post-tax period represents the amount spent using the current price of fuel with the fuel tax implemented</p>
+					<p>These values give the
+						<strong>approximate</strong> total amount that you have spent in given time periods.</p>
+					<p>The pre-tax period represents the amount spent before the fuel tax was implemented and uses the average price of fuel
+						over the past two years. The post-tax period represents the amount spent using the current price of fuel with the fuel
+						tax implemented</p>
 				</div>
 			</section>
 		</div>
@@ -301,8 +306,11 @@
 				<button class="delete" aria-label="close"></button>
 			</header>
 			<section class="modal-card-body">
-				<p>These values give the <strong>approximate</strong> of fuel used over a given time period.</p>
-				<p>These values are calculated using your vehicle's fuel efficiency and the average distance driven over the specified time periods.</p>
+				<p>These values give the
+					<strong>approximate</strong> of fuel used over a given time period.</p>
+				<p>These values are calculated using your vehicle's fuel efficiency and the average distance driven over the specified time
+					periods.
+				</p>
 			</section>
 		</div>
 	</div>
@@ -312,11 +320,12 @@
 		<a href="https://www.akonobrathwaite.com" target="_target">Akono</a>
 	</p>
 
-	<!-- Plotly.js, Particles.js, FontAwesome, jQuery, helper.js, Index.js -->
+	<!-- Plotly.js, Particles.js, FontAwesome, jQuery, sweetAlert, helper.js, Index.js -->
 	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script src="helper.js"></script>
 	<script src="index.js"></script>
 </body>
