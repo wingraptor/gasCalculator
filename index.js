@@ -1,7 +1,8 @@
 let userInputs = [];
 let isFaded = false;
 const newTaxRate = 0.40;
-const conversionMultiplier = 0.425144; //value to conver from mpg to kpl
+//value to convert from mpg to kpl
+const conversionMultiplier = 0.425144; 
 let outputSpans = document.getElementsByClassName("span__output");
 
 //Fuel Rates From June 2016 Until June 2018
@@ -61,16 +62,6 @@ function modalManager() {
   });
 }
 
-
-// Alert users on smaller screensize to rotate phone in case graphs on historical gas prices not displayed. 
-function screenResize() {
-  let w = parseInt(window.innerWidth);
-  if (w <= 569) {
-    //max-width 569px
-    swal("Try rotating device if page is graphs are not displayed properly");
-  }
-}
-
 // Adds the class that allows the modal to load to page
 function modalOpener(ID) {
   $(ID).addClass("is-active");
@@ -84,9 +75,15 @@ function modalCloser(ID) {
   $(ID + " .modal-card .modal-card-head .delete").on("click", function () {
     $(ID).removeClass("is-active");
   });
-  $(ID + " .modal-background").on("click", function () {
-    $(ID).removeClass("is-active");
-  });
+}
+
+// Alert users on smaller screensize to rotate phone in case graphs on historical gas prices not displayed. 
+function screenResize() {
+  let w = parseInt(window.innerWidth);
+  if (w <= 569) {
+    //max-width 569px
+    swal("Try rotating device if graphs are not displayed properly");
+  }
 }
 
 // Adds Calculated Outputs to Page
